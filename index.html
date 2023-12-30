@@ -101,6 +101,12 @@
       };
 
       // Initialize Firebase
+      firebase.initializeApp({
+        // Your firebase configuration object
+      });
+
+      const appCheck = firebase.appCheck();
+      appCheck.activate('6LfaNEEpAAAAAOlTFwcFbrhdZWSSvSBzBu56Ay04', true);
       const app = initializeApp(firebaseConfig);
       const analytics = getAnalytics(app);
       const db = getFirestore(app);
