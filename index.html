@@ -162,17 +162,18 @@
                 max_price: maxPrice,
               });
               console.log(`added user ${telegramUsername} to db`);
+              rentBotForm.reset();
 
-              container.innerHTML(
-                `  <h1>Succes!</h1>
-      <p>Please check if you've received a message on Telegram</p>`
-              );
+              container.innerHTML = `
+                            <h1>Success!</h1>
+                            <p>Please check if you've received a message on Telegram</p>
+                        `;
             } catch (error) {
               console.error('Error writing document: ', error);
-              container.innerHTML(
-                `  <h1>Sorry!</h1>
-      <p>There seemed to be an issue with your form</p>`
-              );
+              container.innerHTML = `
+                            <h1>Sorry!</h1>
+                            <p>There seemed to be an issue with your form</p>
+                        `;
             }
           });
       });
