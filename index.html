@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="container">
+    <div class="container" id="container">
       <h1>Welcome to Amsterdam RentBot</h1>
       <p>
         Please send a message to @FundaRentBot on Telegram before filling in
@@ -134,6 +134,7 @@
             const maxPriceStr = document.getElementById('maxPrice').value;
             const minSizeStr = document.getElementById('minSize').value;
             const maxSizeStr = document.getElementById('maxSize').value;
+            const container = document.getElementById('container');
 
             const minPrice = parseInt(minPriceStr);
             const maxPrice = parseInt(maxPriceStr);
@@ -161,8 +162,17 @@
                 max_price: maxPrice,
               });
               console.log(`added user ${telegramUsername} to db`);
+
+              container.innerHTML(
+                `  <h1>Succes!</h1>
+      <p>Please check if you've received a message on Telegram</p>`
+              );
             } catch (error) {
               console.error('Error writing document: ', error);
+              container.innerHTML(
+                `  <h1>Sorry!</h1>
+      <p>There seemed to be an issue with your form</p>`
+              );
             }
           });
       });
